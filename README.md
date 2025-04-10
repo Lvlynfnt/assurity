@@ -9,14 +9,14 @@ This project contains automated API tests that validate correct API responses, i
     git clone https://github.com/Lvlynfnt/assurity.git
     ```
 2. Install dependencies:
-  ```bash
-  npm install
-  ```
+    ```bash
+    npm install
+    ```
 3. Run tests in headless:
-  ```bash
-  npx playwright test
-  ```
-  Optionally, add `--ui` to run in UI/headed mode:
+    ```bash
+    npx playwright test
+    ```
+    Optionally, add `--ui` to run in UI/headed mode:
 
 ## Files
 
@@ -29,11 +29,11 @@ This project contains automated API tests that validate correct API responses, i
 For better readability, we use a data-driven approach by defining expected values at the top of the test logic. This structure also prepares the test case for a combinatorial testing approach, making the test steps reusable with different sets of input data.
 
 
-```js
+```ts
 import { test, expect } from '../fixtures';
 import { getCategoryDetails } from '../helper/helper';
 
-// Test data oor expected values
+// Test data / Expected values
 const data = {
   id: '6327',
 };
@@ -45,7 +45,7 @@ const expected = {
   canRelist: true,
 };
 
-// Test Steps
+// Test steps
 test.describe('check category details from api response', () => {  
   test(`name should be ${expected.name} `, async ({ request }) => {
     const body = await getCategoryDetails(request, data.id);
